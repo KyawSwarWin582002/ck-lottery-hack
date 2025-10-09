@@ -672,6 +672,644 @@
         
         <div class="header">
             <h1 class="main-title cyber-pulse">CK LOTTERY HACK SYSTEM</h1>
+            <p         .password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        /* Animated background grid */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+        
+        /* Scanning line effect */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
+            box-shadow: 0 0 10px var(--cyber-blue);
+            animation: scan 3s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        
+        .password-container {
+            background: rgba(10, 10, 15, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 
+                0 0 0 1px rgba(0, 243, 255, 0.3),
+                0 0 20px rgba(0, 243, 255, 0.2),
+                inset 0 0 20px rgba(0, 243, 255, 0.1);
+            max-width: 450px;
+            width: 85%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Corner accents */
+        .password-container::before,
+        .password-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--cyber-blue);
+        }
+        
+        .password-container::before {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .password-container::after {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        .password-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--cyber-blue);
+            position: relative;
+        }
+        
+        .password-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
+        }
+        
+        .password-subtitle {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        
+        .password-input-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: var(--cyber-blue);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+        }
+        
+        .password-input::placeholder {
+            color: #555;
+            letter-spacing: 1px;
+        }
+        
+        .password-btn {
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+        
+        .password-btn:hover {
+            background: linear-gradient(135deg, #00264d 0%, #004080 100%);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .password-btn:active {
+            transform: translateY(0);
+        }
+        
+        .password-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .password-btn:hover::before {
+            left: 100%;
+        }
+        
+        .error-message {
+            color: var(--cyber-pink);
+            margin-top: 15px;
+            font-size: 14px;
+            display: none;
+            text-shadow: 0 0 5px rgba(255, 42, 109, 0.7);
+            letter-spacing: 1px;
+        }
+        
+        .hint-text {
+            color: #666;
+            font-size: 12px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .cyber-logo {
+            font-size: 12px;
+            color: var(--cyber-blue);
+            margin-top: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .cyber-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        /* Cyber UI Main Content Styles */
+        .main-container {
+            display: none;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px 10px;
+            box-sizing: border-box;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: gridMove 30s linear infinite;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--cyber-blue);
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+        
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .dashboard {
+                flex-direction: row;
+            }
+        }
+        
+        .prediction-box, .manual-prediction {
+            background: rgba(10, 10, 15, 0.8);
+            color: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 
+                0 0 0 1px rgba(0, 243, 255, 0.3),
+                0 0 20px rgba(0, 243, 255, 0.2),
+                inset 0 0 20px rgba(0, 243, 255, 0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .prediction-box::before, .manual-prediction::before,
+        .prediction-box::after, .manual-prediction::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 2px solid var(--cyber-blue);
+        }
+        
+        .prediction-box::before, .manual-prediction::before {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .prediction-box::after, .manual-prediction::after {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        .prediction-header, .manual-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            padding-bottom: 15px;
+        }
+        
+        .prediction-title, .manual-title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px var(--cyber-blue);
+        }
+        
+        .warning-text {
+            font-size: 11px;
+            color: var(--cyber-yellow);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .prediction-details, .manual-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .prediction-period, .manual-period {
+            color: #aaa;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+        
+        .prediction-result, .manual-result {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        
+        .prediction-result.BIG, .manual-result.BIG {
+            color: var(--cyber-green);
+            border-color: var(--cyber-green);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+        
+        .prediction-result.SMALL, .manual-result.SMALL {
+            color: var(--cyber-pink);
+            border-color: var(--cyber-pink);
+            box-shadow: 0 0 15px rgba(255, 42, 109, 0.3);
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+        }
+        
+        .buttons-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .prediction-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 20px 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        
+        .prediction-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .prediction-btn.small {
+            background: linear-gradient(135deg, #330000, #550000);
+            border-color: rgba(255, 42, 109, 0.5);
+        }
+        
+        .prediction-btn.big {
+            background: linear-gradient(135deg, #003300, #005500);
+            border-color: rgba(0, 255, 136, 0.5);
+        }
+        
+        .prediction-btn.small:hover {
+            background: linear-gradient(135deg, #550000, #770000);
+            box-shadow: 0 0 15px rgba(255, 42, 109, 0.3);
+        }
+        
+        .prediction-btn.big:hover {
+            background: linear-gradient(135deg, #005500, #007700);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+        }
+        
+        .prediction-btn.selected {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .stats-box {
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--light);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            margin: 10px 0;
+            text-shadow: 0 0 5px var(--cyber-blue);
+        }
+        
+        .win-lose-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        
+        .win-btn, .lose-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .win-btn {
+            background: linear-gradient(135deg, #003300, #005500);
+            color: var(--light);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .lose-btn {
+            background: linear-gradient(135deg, #330000, #550000);
+            color: var(--light);
+            border: 1px solid rgba(255, 42, 109, 0.3);
+        }
+        
+        .win-btn:hover, .lose-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .refresh-time {
+            color: #777;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+        
+        .refresh-time.warning {
+            color: var(--cyber-yellow);
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+        }
+        
+        .watermark {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .cyber-scan {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
+            box-shadow: 0 0 10px var(--cyber-blue);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        @media (max-width: 480px) {
+            .prediction-result, .manual-result {
+                font-size: 28px;
+                padding: 15px;
+            }
+            .prediction-btn {
+                font-size: 16px;
+                padding: 15px 8px;
+            }
+            .password-container {
+                padding: 30px 20px;
+            }
+            .password-title {
+                font-size: 22px;
+            }
+            .main-title {
+                font-size: 22px;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            ​100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cyber-glow {
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px var(--cyber-blue);
+            }
+            to {
+                box-shadow: 0 0 20px var(--cyber-blue);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cyber UI Password Screen -->
+    <div class="password-screen" id="password-screen">
+        <div class="cyber-grid"></div>
+        <div class="scan-line"></div>
+        
+        <div class="password-container">
+            <h2 class="password-title cyber-pulse">SECURE ACCESS</h2>
+            <p class="password-subtitle">ENTER AUTHORIZATION CODE</p>
+            
+            <div class="password-input-container">
+                <input type="password" class="password-input" id="password-input" placeholder="ENTER PASSWORD" autocomplete="off">
+            </div>
+            
+            <button class="password-btn" id="password-btn">AUTHENTICATE</button>
+            
+            <div class="error-message" id="error-message">ACCESS DENIED - INVALID CREDENTIALS</div>
+            
+            <p class="hint-text">VIP MEMBERS ONLY</p>
+            
+            <div class="cyber-logo">CK LOTTERY SECURITY SYSTEM</div>
+        </div>
+    </div>
+    
+    <!-- Cyber UI Main Content -->
+    <div class="main-container" id="main-content">
+        <div class="cyber-grid"></div>
+        <div class="cyber-scan"></div>
+        
+        <div class="header">
+            <h1 class="main-title cyber-pulse">CK LOTTERY HACK SYSTEM</h1>
             <p class="subtitle">VIP PREDICTION ENGINE v2.0</p>
         </div>
         
